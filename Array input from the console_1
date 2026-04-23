@@ -1,7 +1,7 @@
 #include <iostream>
 #include <Windows.h>
 
-int main() 
+int main()
 {
     SetConsoleCP(1251);
     SetConsoleOutputCP(1251);
@@ -13,7 +13,7 @@ int main()
 
     int* array = new int[size_array];
 
-    for (int i = 0; i < size_array; i++) 
+    for (int i = 0; i < size_array; i++)
     {
         std::cout << "array[" << i << "] = ";
         std::cin >> array[i];
@@ -21,7 +21,7 @@ int main()
 
     std::cout << "Введённый массив: ";
 
-    for (int i = 0; i < size_array; i++) 
+    for (int i = 0; i < size_array; i++)
 
     {
         std::cout << array[i];
