@@ -1,0 +1,69 @@
+#include <iostream>
+#include <iomanip>
+#include <Windows.h>
+
+int** create_array(int rows, int columns) 
+{
+    int** arr = new int* [rows];
+    for (int i = 0; i < rows; i++) 
+    {
+        arr[i] = new int[columns];
+    }
+    return arr;
+}
+
+void math_table(int** arr, int rows, int columns) 
+{
+    for (int i = 0; i < rows; i++) {
+        for (int j = 0; j < columns; j++) {
+            arr[i][j] = (i + 1) * (j + 1);
+        }
+    }
+}
+
+void v_array2(int** arr, int rows, int columns) 
+
+{
+    for (int i = 0; i < rows; i++) 
+    {
+        for (int j = 0; j < columns; j++) 
+
+        {
+            std::cout << arr[i][j] << " ";
+        }
+        std::cout << std::endl;
+    }
+}
+
+void delete_array(int** arr, int rows, int columns) 
+{
+    for (int i = 0; i < rows; i++) 
+    {
+        delete[] arr[i];
+    }
+    delete[] arr;
+}
+
+int main() 
+{
+    SetConsoleCP(1251);
+    SetConsoleOutputCP(1251);
+
+    int rows, columns;
+
+    std::cout << "Введите количество строк: ";
+    std::cin >> rows;
+
+    std::cout << "Введите количество столбцов: ";
+    std::cin >> columns;
+
+    int** arr = create_array(rows, columns);
+    math_table(arr, rows, columns);
+
+    std::cout << "Таблица умножения:" << std::endl;
+    v_array2(arr, rows, columns);
+
+    delete_array(arr, rows, columns);
+
+    return EXIT_SUCCESS;
+}
